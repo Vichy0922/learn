@@ -16,3 +16,12 @@ CREATE TABLE `user` (
 ALTER TABLE `user` ADD UNIQUE (`username`);
 ALTER TABLE `user` ADD UNIQUE (`email`);
 ALTER TABLE `user` ADD UNIQUE (`phone`);
+
+DROP TABLE IF EXISTS `m-net`;
+CREATE TABLE `m-net` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `songname` varchar(50) DEFAULT NULL comment '歌曲',
+  `singer` varchar(255) DEFAULT NULL comment '歌手',
+  `content` varchar(50) DEFAULT NULL comment '获奖记录',
+ PRIMARY KEY (`id`)
+);
