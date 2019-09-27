@@ -8,6 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.hubu.learn.entity.User;
 import edu.hubu.learn.service.UserService;
 
+import edu.hubu.learn.entity.Music;
+import edu.hubu.learn.service.MusicService;
+
 @Controller
 @RequestMapping("/")
 public class IndexController {
@@ -27,6 +30,18 @@ public class IndexController {
         ModelAndView mav = new ModelAndView();
         User user = userService.getUser(1l);
         mav.addObject("user", user);
+        mav.setViewName("user");
+        return mav;
+    }
+
+    @Autowired
+    private MusicService musicService;
+
+    @RequestMapping("/music")
+    public ModelAndView music() {
+        ModelAndView mav = new ModelAndView();
+        Music music = musicService.getMusic(1l);
+        mav.addObject("music", music);
         mav.setViewName("user");
         return mav;
     }
