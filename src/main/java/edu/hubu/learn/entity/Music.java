@@ -15,4 +15,7 @@ public class Music {
     private String songname;
 
     private String singer;
+
+	public void setAvatar(String string) {
+	}
 }

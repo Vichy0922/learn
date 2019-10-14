@@ -22,4 +22,23 @@ public class MusicService {
 
     return musicDao.findAll();
     }
+
+
+    public Music addMusic(Music music) {
+        return musicDao.save(music);
+    }
+
+    public void deleteUser(Long id) {
+        musicDao.deleteById(id);
+    }
+
+    public void modifyUser(Music music) {
+        musicDao.save(music);
+    }
+
+	public void deleteMusic(Long id) {
+	}
+
+	public void modifyMusic(Music music) {
+	}
 }

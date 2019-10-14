@@ -1,5 +1,6 @@
 package edu.hubu.learn.web;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import edu.hubu.learn.service.UserService;
 
 import edu.hubu.learn.entity.Music;
 import edu.hubu.learn.service.MusicService;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/music")
@@ -40,6 +42,40 @@ public class MusicController {
         return mav;
 
     }
+    @RequestMapping("/add")
+    public ModelAndView addMusic() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("music_add");
+        return mav;
+    }
 
+    @RequestMapping("/do_add")
+    public ModelAndView doAddMusic(Music music) {
+        musicService.addMusic(music);
+        ModelAndView mav = new ModelAndView("redirect:/music/list");
+        return mav;
+    }
+
+    @RequestMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Long id) {
+        musicService.deleteMusic(id);
+        ModelAndView mav = new ModelAndView("redirect:/music/list");
+        return mav;
+    }
+
+    @RequestMapping("/modify/{id}")
+    public ModelAndView modifyMusic(@PathVariable Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("music", musicService.getMusic(id));
+        mav.setViewName("music_modify");
+        return mav;
+    }
+
+    @RequestMapping("/do_modify")
+    public ModelAndView doModifyMusic(Music music) {
+        musicService.modifyMusic(music);
+        ModelAndView mav = new ModelAndView("redirect:/music/list");
+        return mav;
+    }
 
 }
