@@ -29,13 +29,13 @@
   <table class="table table-hover">
 
  <thead>
-          <th>歌曲</th><th>歌手</th><th>删除</th><th>修改</th>
+          <th>歌曲</th><th>歌手</th><th>删除</th><th>修改</th><th>头像</th>
           </thead>
           <tbody>
 
-<#list musics as music123>
+<#list musics as music>
 <tr>
-<td>${music123.songname}</td><td>${music123.singer}</td>
+<td>${music.songname}</td><td>${music.singer}</td>
   <td><a href="/music/delete/${music.id}">删除</a></td>
           <td><a href="/music/modify/${music.id}">修改</a></td>
 </tr>

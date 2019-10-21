@@ -16,6 +16,11 @@ public class Music {
 
     private String singer;
 
-	public void setAvatar(String string) {
+    private String type;
+    
+    @Column(name="avatar_url")
+    private String avatar;
+
+	public void setMusicname(String keyword) {
 	}
 }
